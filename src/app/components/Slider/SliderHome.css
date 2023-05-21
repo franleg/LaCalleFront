@@ -1,0 +1,148 @@
+.slider-container {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.slider {
+    width: 300%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.slide {
+    transition: all .5s ease-in-out;
+}
+
+.slider-container img {
+    width: 100%;
+}
+
+.slider-container .info {
+    position: absolute;
+    top: 28%;
+    left: 9%;
+    width: 45%;
+    text-align: left;
+}
+
+.slider-container h2 {
+    width: 100%;
+    font-size: 60px;
+    color: #b4893d;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 1px #b4893d;
+    text-shadow:1px 1px 14px rgba(85, 85, 85, 0.2); 
+}
+
+.slider-container p {
+    font-size: 20px;
+    color: #f3f3f3;
+    margin-top: 10px;
+    text-shadow: 0px 2px 21px rgba(27, 27, 27, 0.8);
+    width: 80%;
+}
+
+.dotsNavigation {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    bottom: 10%;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
+.btn-slider {
+    background: rgba(255, 255, 255, 0.5);
+    width: 18px;
+    height: 18px;
+    margin: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.btn-slider:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 4px rgba(107, 107, 107, 0.1);
+}
+
+.btn-slider.active {
+    border: 2px solid rgba(197, 197, 197, 0.8);
+    box-shadow: 0 0 4px rgba(107, 107, 107, 0.1);
+}
+
+.previousArrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 3%;
+    font-size: 40px;
+    color: #fff !important;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.4;
+    transition: all .2s ease-out;
+}
+
+.nextArrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 3%;
+    font-size: 40px;
+    color: #fff !important;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.4;
+    transition: all .2s ease-out;
+}
+
+.previousArrow:hover {
+    opacity: 0.9;
+}
+
+.nextArrow:hover {
+    opacity: 0.9;
+}
+
+@media only screen and (max-width: 768px) {
+    .info {
+        width: 60% !important;
+        top: 22% !important;
+        left: 20% !important;
+        text-align: center !important;
+    }
+
+    .slider-container h2 {
+        font-size: 18px;
+    }
+
+    .slider-container p {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .dotsNavigation {
+        bottom: 5%;
+    }
+    
+    .btn-slider {
+        width: 10px;
+        height: 10px;
+        margin: 8px;
+    }
+
+    .previousArrow {
+        left: 6%;
+        font-size: 20px;
+    }
+    
+    .nextArrow {
+        right: 6%;
+        font-size: 20px;
+    }
+}

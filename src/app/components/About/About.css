@@ -1,0 +1,18 @@
+.about-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: whitesmoke;
+}
+
+.about-intro h1 {
+    padding-top: 60px;
+    font-size: 62px;
+}
+
+.about-intro p {
+    color: black;
+    padding: 40px;
+    width: 65%;
+    font-size: 24px;
+}

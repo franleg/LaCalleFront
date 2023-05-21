@@ -1,0 +1,215 @@
+.timetable-container {
+    background-image: linear-gradient( rgba(15, 11, 0, 0.7), rgba(153,103,16, 0.7)), url(../../../assets/img/fondo6.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: whitesmoke;
+    padding-bottom: 30px;
+}
+
+.timetable-container h2 {
+    font-size: 28px;
+}
+
+.timetable-container h3 {
+    font-size: 22px;
+}
+
+.timetable-container h3 strong {
+    color: rgb(204, 157, 39);
+    font-size: 25px;
+}
+
+.timetable-container .subtitle {
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-size: 32px;
+}
+
+.timetable-container .filter {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.filter p {
+    margin-bottom: 0;
+}
+
+.filter .select {
+    box-shadow: none;
+    border: none !important;
+    background: transparent;
+    background-image: none;
+}
+
+.filter .select::after {
+    background: transparent;
+    color:rgb(22, 22, 22);
+    padding: 0;
+    top: 4.5px;
+    right: 4px;
+    width: 35%;
+    font-size: 15px;
+}
+
+.filter .select:hover::after {
+    color: rgb(0, 0, 0);
+}
+
+.filter select {
+    position: relative;
+    display: flex;
+    width: 160px;
+    height: 50px; 
+    line-height: 3;
+    background: transparent;
+    overflow: hidden;
+    color:rgb(22, 22, 22);
+    font-weight: bold;
+    border-radius: .25em;
+    box-shadow: 0 10px 15px rgba(29, 25, 46, 0.6);
+    transition:.25s all ease;
+}
+
+.filter select:hover {
+    color: rgb(0, 0, 0) !important;
+}
+
+.time-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 4rem;
+    background-color: black;
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+    color: whitesmoke;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.time-info .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-info .info div p {
+    margin-bottom: 0;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.time div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time div hr {
+    width: 70%;
+}
+
+.time div h5 {
+    font-size: 1em;
+    margin-bottom: 0;
+    color: whitesmoke;
+}
+
+.hour {
+    font-size: 2.5em;
+    background: -webkit-linear-gradient(rgb(223, 223, 223)70%,rgb(12, 12, 12));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: rgb(255, 255, 255); 
+    margin-bottom: 0;
+}
+
+.lacalle-text {
+    background: -webkit-linear-gradient(rgb(204, 157, 39)10%,rgb(153, 23, 13));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: rgb(255, 255, 255);   
+}
+
+.time-info .btn {
+    --color: rgb(204, 157, 39);
+    --color2: rgb(10, 25, 30);
+    padding: 0.8em 1.75em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+    margin-top: 20px;
+}
+
+.time-info .btn::after, .time-info .btn::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .3s ease-out;
+    background-color: var(--color);
+}
+
+.time-info .btn::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.time-info .btn:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.time-info .btn:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+}
+
+.time-info .btn:hover {
+    color: var(--color2);
+}
+
+@media only screen and (max-width: 768px) {
+    .timetable-container .subtitle {
+        margin-top: 70px;
+    }
+
+    .time-info {
+        flex-direction: column;
+    }
+
+    .time-info .info {
+        margin-bottom: 20px;
+    }
+
+    .time-info .time {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+}

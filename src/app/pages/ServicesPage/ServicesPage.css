@@ -1,0 +1,48 @@
+.services-container {
+    width: 100%;
+    position: relative;
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgb(28, 47, 71)), url(../../../assets/img/fondo.jpg); */
+    background-image: linear-gradient( rgba(15, 11, 0, 0.7), rgba(153,103,16, 0.7)), url(../../../assets/img/fondo6.jpg);
+    background-size: cover;
+    min-height: 100vh; 
+}
+
+.title-services {
+    padding-top: 50px;
+    font-size: 3.5em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+.line-container {
+	display: flex;
+	justify-content: center;
+}
+
+.line {
+	display: inline-block;
+	width: 5rem;
+	height: .3rem;
+	background: rgb(204, 157, 39);
+	margin: 10px 0 30px 0;
+}
+
+.cards-container {
+    margin-top: 50px;
+    padding-bottom: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width:767px) {
+    .title-services{
+        font-size: 2.4em;
+    }
+    .line {
+        width: 4rem;
+    }
+}
