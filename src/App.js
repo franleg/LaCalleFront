@@ -1,6 +1,6 @@
 import './App.css';
 import { Navbar } from './app/components/Navbar/Navbar';
-import { AppRoutes } from './app/routes/AppRoutes';
+import { AppRouter } from './app/router/AppRouter';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
 
@@ -9,7 +9,7 @@ function LaCalleApp() {
     <Provider store={store}>
       <div className="App">
         <Navbar />
-        <AppRoutes />
+        <AppRouter />
       </div>
     </Provider>
   );

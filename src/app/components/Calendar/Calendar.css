@@ -6,7 +6,7 @@
     width: 100%;
     min-height: 100vh;
     z-index: 999999;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0);
     color: #eee;
     justify-content: center;
     align-items: center;
@@ -27,6 +27,7 @@
     box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
     transform: scale(0.55);
     margin: 10px;
+    border-radius: 5px;
 }
 
 .arrow {

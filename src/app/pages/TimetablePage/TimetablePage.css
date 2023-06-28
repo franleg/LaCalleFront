@@ -13,6 +13,7 @@
 
 .timetable-container h3 {
     font-size: 22px;
+    margin: 0 20px 20px 30px;
 }
 
 .timetable-container h3 strong {
@@ -83,7 +84,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin: 2rem 4rem;
+    margin: 2rem;
     background-color: black;
     box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
     color: whitesmoke;
@@ -117,6 +118,7 @@
 
 .time div hr {
     width: 70%;
+    margin: 25px 0 0 0;
 }
 
 .time div h5 {
@@ -195,7 +197,7 @@
     color: var(--color2);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 965px) {
     .timetable-container .subtitle {
         margin-top: 70px;
     }
@@ -211,5 +213,10 @@
     .time-info .time {
         width: 100%;
         justify-content: space-evenly;
+    }
+
+    .hour {
+        font-size: 2em;
+        margin-bottom: 30px;
     }
 }

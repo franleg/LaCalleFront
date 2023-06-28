@@ -29,7 +29,8 @@
     width: 27.5rem;
     height: 33.5rem;
     background-color: #222227;
-    box-shadow: 0 0.5rem 3rem rgba(49, 49, 49, 0.4);
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
     transform: scale(0.9);
 }
 
@@ -108,7 +109,7 @@ select {
     outline: 0;
     box-shadow: none;
     border: none !important;
-    background: whitesmoke;
+    background-color: whitesmoke;
     background-image: none;
     flex: 1;
     padding: 0 .5em;
@@ -126,7 +127,6 @@ select::-ms-expand {
     width: 160px;
     height: 50px; 
     line-height: 3;
-    background: white;
     overflow: hidden;
     color: #222227;
     border-radius: .25em;
@@ -139,7 +139,6 @@ select::-ms-expand {
     top: 0;
     right: 0;
     padding: 0 1em;
-    background: whitesmoke;
     color: #222227;
     font-size: 17px;
     cursor:pointer;

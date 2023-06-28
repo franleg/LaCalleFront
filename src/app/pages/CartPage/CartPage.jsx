@@ -1,6 +1,6 @@
 import { Cart } from '../../components/Cart/Cart';
 import { Clock } from '../../components/Clock/Clock';
-import { Buyer } from '../../components/Buyer/Buyer';
+/* import { Buyer } from '../../components/Buyer/Buyer'; */
 import { Payment } from '../../components/Payment/Payment';
 import './CartPage.css';
 
@@ -14,8 +14,8 @@ export const CartPage = () => {
 			</div>
             <Cart />
             <Clock />
-            <Buyer />
-            <Payment />
+{/*             <Buyer /> */}
+            <Payment />              
         </div>
     )
 }

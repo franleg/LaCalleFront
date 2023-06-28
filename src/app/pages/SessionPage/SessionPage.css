@@ -1,0 +1,212 @@
+.session-container {
+    width: 100%;
+    background-image: linear-gradient( rgba(15, 11, 0, 0.9), rgba(153,103,16, 1)), url(../../../assets/img/fondo6.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.box-container {
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    border-radius: 10px;
+}
+
+.login-box, .register-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 10px;
+    background: black;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.7);
+    backface-visibility: hidden;
+    transform: translate(-50%, -50%);
+    transition: .5s;
+    padding: 30px;
+}
+
+.login-box {
+    transform: perspective(500px) rotateY(0deg);
+    width: 40%
+}
+
+.register-box {
+    transform: perspective(500px) rotateY(180deg);
+    width: 60%
+}
+
+.login-box.isRotated {
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.register-box.isRotated {
+    transform: perspective(500px) rotateY(360deg);
+}
+
+.login-box h2, .register-box h2 {
+    padding: 20px 0 30px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+}
+
+.login-form, .register-form {
+    width: 100%;
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.user-box {
+    position: relative;
+    border-bottom: 1px solid #fff;
+    margin: 0 25px 40px 25px;
+}
+
+.user-box input, .user-box input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #fff;
+}
+
+.user-box span::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: rgb(204, 157, 39);
+}
+
+.user-box input:focus ~ span::before,
+.user-box input:valid ~ span::before {
+    width: 100%;
+}
+
+.user-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -5px;
+    color: rgb(204, 157, 39);
+}
+
+.submit-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.submit {
+    background: black;
+    padding: 10px 20px;
+    color: rgb(204, 157, 39);;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .3s;
+    letter-spacing: 2px;
+    border: 1px solid rgb(204, 157, 39);
+    border-radius: 5px;
+}
+
+.submit:hover {
+    background: rgb(204, 157, 39);
+    color: #fff;
+    box-shadow: 0 0 5px rgb(204, 157, 39), 0 0 2px rgb(204, 157, 39), 0 0 10px rgb(204, 157, 39);
+}
+
+.login, .register {
+    display: flex;
+    align-items: space-around;
+    font-size: 14px;
+    color: #CBBDDB;
+    text-align: center;
+}
+
+.login p, .register p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.btn-register, .btn-login {
+    color: rgb(204, 157, 39);
+    margin: 0;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+/* .error-container {
+    width: 100%;
+    height: 20px;
+} */
+
+.error {
+    color: red;
+    opacity: 0;
+}
+
+.error.active {
+    opacity: 1;
+}
+
+@media only screen and (max-width:965px) {
+    .box-container {
+        height: 120vh;
+    }
+
+    .login-box, .register-box {
+        width: 90%;
+    }
+
+    .register-box {
+        padding: 15px;
+    }
+
+    .user-box {
+        margin: 0 15px 50px 15px;
+    }
+
+    .submit-container {
+        flex-direction: column;
+    }
+
+    .login, .register {
+        flex-direction: column;
+    }
+
+    .login, .register {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .box-container {
+        height: 90vh;
+    }
+}

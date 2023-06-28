@@ -1,6 +1,24 @@
-import { NavLink } from "react-router-dom"
+/* import DayService from "../../../services/Days"; */
 
-export const Timetable = ({ time, date, field }) => {
+export const Timetable = ({ time, date, field, showModal }) => {
+
+/*     const reserve = (date, field) => {
+        const data = {
+            date, 
+            field
+        }
+        const service = new DayService();
+        service.postDay(data, callbackSuccessPostDay, callbackErrorPostDay)
+    }
+
+    const callbackSuccessPostDay = (res) => {
+        console.log(res);
+      }
+    
+    const callbackErrorPostDay = (err) => {
+    console.log(err);
+    } */
+
     return (
         <div className="time-container">
             <div className="time-info">
@@ -24,9 +42,12 @@ export const Timetable = ({ time, date, field }) => {
                 <p className='hour'>{ time.end }</p>
                 </div>
             </div>
-            <NavLink to='/carro'>
-                <button className='btn btn-primary'>Reservar</button>
-            </NavLink>
+                <button 
+                    className='btn btn-primary' 
+                    onClick={ showModal }
+                >
+                    Reservar
+                </button>
             </div>
         </div>
     )

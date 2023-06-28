@@ -1,5 +1,6 @@
 export * from './ContactPage/ContactPage';
 export * from './HomePage/HomePage';
+export * from './SessionPage/SessionPage';
 export * from './ProfilePage/ProfilePage';
 export * from './ServicesPage/ServicesPage';
 export * from './BookingsPage/BookingsPage';

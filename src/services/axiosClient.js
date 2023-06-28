@@ -7,4 +7,10 @@ export default class AxiosClient {
         .then(callbackSuccess)
         .catch(callbackError)
     }
+
+    makePostRequest = ({ url, data, callbackSuccess, callbackError }) => {
+        axios.post(url, data)
+        .then(callbackSuccess)
+        .catch(callbackError)
+    }
 }

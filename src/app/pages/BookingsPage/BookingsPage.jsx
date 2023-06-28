@@ -4,7 +4,6 @@ import { prices } from './prices';
 import backgroundBookings from '../../../assets/img/pelota.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faClock } from '@fortawesome/free-solid-svg-icons';
-/* import { Calendar } from '../../components/Calendar/Calendar'; */
 import { ModalBookings } from '../../components/Modal/ModalBookings';
 
 export const BookingsPage = () => {
@@ -111,8 +110,7 @@ export const BookingsPage = () => {
           <button className="btn btn-primary" onClick={ showModal }>RESERVAR</button>
         </div>
       </div>
-      <ModalBookings closeModal={ closeModal } modalIsOpen={ modalIsOpen } innerRef = { modalRef } crossCloseRef = {crossCloseRef} />
-      {/* <Calendar handleClose={ handleClose } isOpen={ isOpen } innerRef = { calendarRef } /> */}
+      <ModalBookings closeModal={ closeModal } modalIsOpen={ modalIsOpen } modalRef = { modalRef } crossCloseRef = {crossCloseRef} />
     </div>
   )
 }

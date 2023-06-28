@@ -34,7 +34,7 @@
     transition: 0.5s;
     overflow: hidden;
     line-height: 1.6em;
-    text-shadow: 0 0 #fff, 0 1.8em rgb(204, 157, 39);
+    text-shadow: 0 0 #fff, 0 1.8em rgb(204, 157, 39) !important;
 }
 
 /* .nav_items li a.active {
@@ -42,14 +42,14 @@
 } */
 
 .nav_items li a:hover {
-    text-shadow: 0 -1.8em #fff, 0 0 rgb(204, 157, 39);
+    text-shadow: 0 -1.8em #fff, 0 0 rgb(204, 157, 39) !important;
 }
 
 .nav_menu {
     display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 965px) {
     .nav_logo {
         padding-left: 25px;
     }
