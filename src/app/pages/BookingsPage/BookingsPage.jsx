@@ -1,12 +1,15 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './BookingsPage.css';
 import { prices } from './prices';
 import backgroundBookings from '../../../assets/img/pelota.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faClock } from '@fortawesome/free-solid-svg-icons';
 import { ModalBookings } from '../../components/Modal/ModalBookings';
+import PromotionService from '../../../services/Promotions';
 
 export const BookingsPage = () => {
+
+  const [ promotions, setPromotions ] = useState([]);
 
   const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
@@ -21,6 +24,30 @@ export const BookingsPage = () => {
       setModalIsOpen(false)
     }
   }
+
+  useEffect(() => {
+    const getPromotions = () => {
+      try {
+        const service = new PromotionService();
+        service.getPromotions(callbackSuccess, callbackError);
+      } catch (error) {
+        console.error('Error al obtener las promociones:', error);
+      } 
+    };
+    getPromotions();
+  }, []);
+
+  const callbackSuccess = (res) => {
+    setPromotions(res.data)
+  }     
+    
+  const callbackError = (err) => {
+    console.log(err)
+  };
+
+  useEffect(() => {
+    console.log(promotions);
+  }, [promotions]);
 
   return (
     <div className="bookings-container">
@@ -97,7 +124,7 @@ export const BookingsPage = () => {
                         </div>
         
                       </div>
-                      <button className="btn btn-primary btn-promotion" onClick={ showModal }> Reservar </button>
+                      {/* <button className="btn btn-primary btn-promotion" onClick={ showModal }> Reservar </button> */}
                     </div>
                     <hr />
                 </li>

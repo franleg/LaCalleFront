@@ -4,9 +4,11 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import { useState, useEffect } from 'react';
 import { useCallback } from 'react';
 
-export const Calendar = ({ calendarRef, closeCalendar, calendarIsOpen, daysRef }) => {
+export const Calendar = ({ calendarContainerRef, calendarRef, closeCalendar, calendarIsOpen, daysRef }) => {
 
-    let [ date ]= useState(new Date());
+    const currentDate = new Date();
+
+    let [ date ] = useState(new Date());
 
     let [ days, setDays ] = useState([]);
 
@@ -81,7 +83,7 @@ export const Calendar = ({ calendarRef, closeCalendar, calendarIsOpen, daysRef }
     }, [renderCalendar])
 
     return (
-        <div className={ `calendar-container ${calendarIsOpen && 'open'}`} >
+        <div className={ `calendar-container ${calendarIsOpen && 'open'}`} onClick={closeCalendar} ref={ calendarContainerRef }>
             <div className="calendar" ref={ calendarRef }>
                 <div className="month">
                     <FontAwesomeIcon 
@@ -124,24 +126,28 @@ export const Calendar = ({ calendarRef, closeCalendar, calendarIsOpen, daysRef }
                             <div 
                                 key={index} 
                                 onClick={ (e) => {
-                                    handleClick(index)
-                                    /* let dateInCalendar = (`${day}/${date.getMonth() + 1}/${date.getFullYear()}`) */
-                                    let dateInCalendar = new Date(date.getFullYear(), date.getMonth(), day).toLocaleDateString ("es-ES")
-                                    closeCalendar(e, dateInCalendar)
+                                    const clickedDate = new Date(date.getFullYear(), date.getMonth(), day);
+                                    if (clickedDate >= currentDate) {
+                                      handleClick(index);
+                                      let dateInCalendar = clickedDate.toLocaleDateString("es-ES");
+                                      closeCalendar(e, dateInCalendar);
+                                    }
                                 }}
-                                className={ (index < date.getDay())
-                                            || (index > date.getDay() + new Date(
-                                                                        date.getFullYear(),
-                                                                        date.getMonth() + 1,
-                                                                        0).getDate() - 1)
-                                            || ((day < new Date().getDate()) && (date.getMonth() === new Date().getMonth()))
-                                                ? 'out-date' 
-                                                : activeIndex === index
-                                                    ? 'isClicked'
-                                                    : day === new Date().getDate() && date.getMonth() === new Date().getMonth() 
-                                                        ? 'today' 
-                                                        : ''
-                                        }
+                                className={ 
+                                    (index < date.getDay()) 
+                                    || (index > date.getDay() + new Date(
+                                      date.getFullYear(),
+                                      date.getMonth() + 1,
+                                      0
+                                    ).getDate() - 1)
+                                    || ((day < new Date().getDate()) && (date.getMonth() === new Date().getMonth()))
+                                      ? 'out-date' 
+                                      : activeIndex === index
+                                        ? 'isClicked'
+                                        : day === new Date().getDate() && date.getMonth() === new Date().getMonth() 
+                                          ? 'today' 
+                                          : ''
+                                  }   
                             >
                                 { day }
                             </div>

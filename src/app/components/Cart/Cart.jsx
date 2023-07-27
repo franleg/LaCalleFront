@@ -1,27 +1,35 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-export const Cart = () => {
+export const Cart = ({field, date, time, price}) => {
 
     const options = {weekday: "long", year: "numeric", month: "long", day: "numeric"}; 
+    const convertFromStringToDate = (responseDate) => {
+        let dateComponents = responseDate.split('T');
+        let datePieces = dateComponents[0].split("/");
+        let convertedDate = new Date(`${datePieces[2]}/ ${datePieces[1]}/ ${datePieces[0]}`).toLocaleDateString("es-ES", options);
+        return convertedDate
+    }
+    
+    const convertedDate = convertFromStringToDate(date);
+
     return (
         <div className='cart'>
-            <h2>Comprando...</h2>
+            <h2>Detalle de compra</h2>
             <div className='cart-detail'>
                 <div className='info-detail'>
-                    <h4>Reserva</h4>
                     <p>Lacroze 5553, Villa Ballester</p>
-                    <p>{ new Date().toLocaleDateString("es-ES", options) }</p>
-                    <p>16:00 a 17:00</p>
+                    <p>{ convertedDate }</p>
+                    <p>{ `${time.start} a ${time.end} hs` }</p>
                 </div>
                 <div className='detail-container'>
                     <div className='detail'>
                         <h4>Servicio</h4>
-                        <p>Cancha de 5</p>
+                        <p>{ field }</p>
                     </div>
                     <div className='detail'>
                         <h4>Precio</h4>
-                        <p>$17.000</p>
+                        <p>${ price }</p>
                     </div>
                     <div className='detail'>
                         <h4>Cantidad</h4>
@@ -29,7 +37,7 @@ export const Cart = () => {
                     </div>
                     <div className='detail'>
                         <h4>Subtotal</h4>
-                        <p>$17.000</p>
+                        <p>${ price }</p>
                     </div>
                     <div className='delete-purchase'>
                         <p><FontAwesomeIcon icon={faTrash} /></p>

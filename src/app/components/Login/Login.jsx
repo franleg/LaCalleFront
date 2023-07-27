@@ -9,7 +9,8 @@ export const Login = ({ isRotated, rotateBox }) => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    
+    const redirectPath = new URLSearchParams(location.search).get('redirect');
+
     const dispatch = useDispatch();
 
     const formRef = useRef(null);
@@ -25,7 +26,7 @@ export const Login = ({ isRotated, rotateBox }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleLogin = async (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
         if (!formData.email.trim() || !formData.password.trim()) {
             setError('Por favor, completar todos los campos');
@@ -48,14 +49,11 @@ export const Login = ({ isRotated, rotateBox }) => {
         setError('');
         formRef.current.reset();
         dispatch(login({ token, expiresAt }));
-        const redirectUrl = new URLSearchParams(location.search).get('redirect');
-        if (redirectUrl) {
-          console.log("Redirecting to:", redirectUrl);
-          navigate(redirectUrl);
-        } else {
-          console.log("Redirecting to home");
-          navigate('/');
-        }
+        if (redirectPath) {
+            navigate(redirectPath);
+          } else {
+            navigate("/");
+          }
     }     
       
     const callbackError = (err) => {

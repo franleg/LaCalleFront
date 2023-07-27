@@ -3,6 +3,7 @@ import { dataSlice } from "./slices/data";
 import { authSlice } from "./slices/auth";
 import { userSlice } from "./slices/user";
 import { tokenSlice } from "./slices/token";
+import { reservationSlice } from "./slices/reservation";
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
         auth: authSlice.reducer,
         token: tokenSlice.reducer,
         user: userSlice.reducer,
+        reservation: reservationSlice.reducer,
     }
 })
 

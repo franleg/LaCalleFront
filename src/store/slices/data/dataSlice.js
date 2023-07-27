@@ -1,20 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialValue = {
-    field: "",
-    date: ""
-}
+const initialState = {
+    field: localStorage.getItem("Field") || null,
+    date: localStorage.getItem("Date") || null,
+  };
 
 export const dataSlice = createSlice({
     name: 'data',
-    initialState: { value: initialValue },
+    initialState,
     reducers: {
-        setData: (state, action) => {
-            state.value = action.payload;
+        setField: (state, action) => {
+            const field = action.payload;
+            state.field = field;
+            localStorage.setItem("Field", field);
+        },
+        setDate: (state, action) => {
+            const date = action.payload;
+            state.date = date;
+            localStorage.setItem("Date", date);
         }
     },
 })
 
-export const { setData } = dataSlice.actions;
+export const { setField, setDate, setTime } = dataSlice.actions;
+
+export const selectedField = (state) => state.data.field;
+export const selectedDate = (state) => state.data.date;
 
 export default dataSlice.reducer;

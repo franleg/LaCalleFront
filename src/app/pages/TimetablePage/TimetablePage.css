@@ -79,17 +79,31 @@
     color: rgb(0, 0, 0) !important;
 }
 
+.time-container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+    color: whitesmoke;
+    margin: 2rem;
+    border-radius: 8px;
+    padding: 25px;
+}
+
 .time-info {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin: 2rem;
-    background-color: black;
-    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
-    color: whitesmoke;
-    border-radius: 8px;
-    padding: 25px;
+}
+
+.time-detail {
+    padding-top: 5px;
+}
+
+.time-detail p {
+    margin-bottom: 0;
+    cursor: pointer;
 }
 
 .time-info .info {

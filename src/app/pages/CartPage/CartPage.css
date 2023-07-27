@@ -28,7 +28,7 @@
     display: flex;
     justify-content: space-around;
     align-items: baseline;
-    margin-top: 15px;
+    margin: 20px 15px;
 }
 
 .cart-detail .info-detail {
@@ -167,8 +167,7 @@
     text-align: left;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
-    width: 17%;
+    width: 100%;
     padding-left: 0 !important;
 }
 
@@ -176,11 +175,6 @@
     margin-bottom: 0;
     padding-left: 60px;
     padding-right: 20px;
-}
-
-.total-container p {
-    margin-bottom: 0;
-    font-size: 25px;
 }
 
 .purchaseButton-container {

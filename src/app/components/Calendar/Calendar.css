@@ -89,7 +89,6 @@
     display: flex;
     flex-wrap: wrap;
     padding: 0.2rem;
-    /* border-bottom: 1px solid whitesmoke; */
 }
 
 .days div {
@@ -118,6 +117,7 @@
 .today {
     background-color: #262626;
     border: 0.2rem solid #777;
+    cursor: default !important;
 }
 
 .isClicked {

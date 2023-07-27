@@ -1,0 +1,4 @@
+.extra-detail {
+    display: flex;
+    flex-direction: column;
+}

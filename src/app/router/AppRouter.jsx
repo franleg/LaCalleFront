@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { SessionPage, HomePage, ServicesPage, ContactPage, CartPage, ProfilePage, BookingsPage, TimetablePage, TrainingPage, TournamentsPage } from "../pages";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, selectToken, selectTokenExpiresAt } from "../../store/slices/token";
@@ -7,6 +7,8 @@ import { useEffect } from "react";
 export const AppRouter = () => {
   
   const dispatch = useDispatch();
+  const location = useLocation();
+  const redirectPath = new URLSearchParams(location.search).get('redirect');
 
   const token = useSelector(selectToken);
   const tokenExpiresAt = useSelector(selectTokenExpiresAt);
@@ -30,35 +32,20 @@ export const AppRouter = () => {
       {/* Private Routes */}
       <Route
         path="/perfil"
-        element={isAuthenticated ? <ProfilePage /> : <Navigate to="/session" />}
+        element={ isAuthenticated ? <ProfilePage /> : <Navigate to="/session" /> }
       />
 
       <Route
         path="/carro"
-        element={
-          isAuthenticated ? (
-            <CartPage />
-          ) : (
-            <Navigate to="/session" />
-          )
-        }
+        element={ isAuthenticated ? <CartPage /> : <Navigate to="/session" /> }
       />
-
-{/*       <Route
-        path="/carro"
-        element={
-          isAuthenticated ? (
-            <CartPage />
-          ) : (
-            <Navigate to={`/session?redirect=${location.pathname}`} replace />
-          )
-        }
-      /> */}
 
       {/* Public Routes */}
       <Route
         path="/session"
-        element={isAuthenticated ? <Navigate to="/" /> : <SessionPage />}
+        element={ isAuthenticated & !redirectPath ? <Navigate to="/" /> 
+          : isAuthenticated & redirectPath ? <Navigate to={ redirectPath } /> 
+          : <SessionPage /> }
       />
 
       <Route path="/" element={ <HomePage /> } />
@@ -75,7 +62,7 @@ export const AppRouter = () => {
 
       <Route path="/servicios/torneos" element={ <TournamentsPage /> } />
 
-      <Route path="/*" element={ <Navigate to="/" /> } />
+      {/* <Route path="/*" element={ <Navigate to="/" /> } /> */}
 
     </Routes>
   )
