@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { selectTokenExpiresAt } from "../../../store/slices/token";
+import { selectTokenExpiresAt } from "../../../store/slices/session";
 import { useDispatch, useSelector } from "react-redux";
 import { setReservation } from "../../../store/slices/reservation";
 import { ModalDetail } from '../Modal/ModalDetail';

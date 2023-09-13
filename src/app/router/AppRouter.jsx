@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { SessionPage, HomePage, ServicesPage, ContactPage, CartPage, ProfilePage, BookingsPage, TimetablePage, TrainingPage, TournamentsPage } from "../pages";
+import { SessionPage, HomePage, ServicesPage, ContactPage, CartPage, ProfilePage, ReservationPage, TimetablePage, TrainingPage, TournamentsPage } from "../pages";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, selectToken, selectTokenExpiresAt } from "../../store/slices/token";
+import { logout, selectToken, selectTokenExpiresAt, selectUser } from "../../store/slices/session";
 import { useEffect } from "react";
 
 export const AppRouter = () => {
@@ -12,6 +12,7 @@ export const AppRouter = () => {
 
   const token = useSelector(selectToken);
   const tokenExpiresAt = useSelector(selectTokenExpiresAt);
+  const user = useSelector(selectUser);
   const isAuthenticated = Date.now() < new Date(tokenExpiresAt).getTime();
 
   useEffect(() => {
@@ -23,22 +24,22 @@ export const AppRouter = () => {
   console.log("Token:", token);
   console.log("Token Expires At:", tokenExpiresAt);
   console.log("Current Time:", Date.now());
-  console.log("Is Authenticated:", isAuthenticated);    
-
+  console.log("Is Authenticated:", isAuthenticated);  
+  console.log("Usuario:", user);
 
   return (
     <Routes>
-    
       {/* Private Routes */}
       <Route
         path="/perfil"
-        element={ isAuthenticated ? <ProfilePage /> : <Navigate to="/session" /> }
+        element={ isAuthenticated ? <ProfilePage user = { user } /> : <Navigate to="/session" /> }
       />
 
       <Route
         path="/carro"
-        element={ isAuthenticated ? <CartPage /> : <Navigate to="/session" /> }
+        element={ isAuthenticated ? <CartPage token= { token } /> : <Navigate to="/session" /> }
       />
+
 
       {/* Public Routes */}
       <Route
@@ -54,7 +55,7 @@ export const AppRouter = () => {
 
       <Route path="/contacto" element={ <ContactPage /> } />
 
-      <Route path="/servicios/reservas" element={ <BookingsPage /> } />
+      <Route path="/servicios/reservas" element={ <ReservationPage /> } />
 
       <Route path="/servicios/reservas/horarios" element={ <TimetablePage /> } />
 

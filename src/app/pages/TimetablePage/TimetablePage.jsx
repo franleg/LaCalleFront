@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-regular-svg-icons';
 import { Timetable } from '../../components/Timetable/Timetable';
 import './TimetablePage.css';
-import SchedulesService from '../../../services/Schedules';
+import AvailabilityService from '../../../services/Availability';
 import { ModalLogin } from '../../components/Modal/ModalLogin';
 import { useSelector } from 'react-redux';
 import { selectedField, selectedDate  } from '../../../store/slices/data';
@@ -50,7 +50,7 @@ export const TimetablePage = () => {
           setTimeout(() => {
             setError(null);
             try {
-              const service = new SchedulesService();
+              const service = new AvailabilityService();
               service.getSchedules(field, convertedDate, callbackSuccess, callbackError);
             } catch (error) {
               console.error(error);

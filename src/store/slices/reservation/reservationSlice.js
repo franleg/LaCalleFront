@@ -28,6 +28,6 @@ export const reservationSlice = createSlice({
 
 export const { setReservation } = reservationSlice.actions;
 
-export const selectedReservation = (state) => state.reservation;
+export const selectReservation = (state) => state.reservation;
 
 export default reservationSlice.reducer;

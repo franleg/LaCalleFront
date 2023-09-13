@@ -2,14 +2,9 @@ import { useState, useRef } from "react";
 import logo from "../../../assets/img/logo.png"
 import SessionService from "../../../services/Sessions";
 import { useDispatch } from 'react-redux';
-import { login } from "../../../store/slices/token";
-import { useNavigate, useLocation } from "react-router-dom";
+import { login } from "../../../store/slices/session";
 
 export const Login = ({ isRotated, rotateBox }) => {
-
-    const navigate = useNavigate();
-    const location = useLocation();
-    const redirectPath = new URLSearchParams(location.search).get('redirect');
 
     const dispatch = useDispatch();
 
@@ -33,27 +28,22 @@ export const Login = ({ isRotated, rotateBox }) => {
             return;
         }
         try {
-            const service = new SessionService();
-            service.loginUser(formData, callbackSuccess, callbackError);
+            const sessionService = new SessionService();
+            sessionService.loginUser(formData, callbackSuccess, callbackError);
         } catch (error) {
             console.error('Error al iniciar sesión:', error);
         }
     };
 
     const callbackSuccess = (res) => {
-        const { token, expiresAt } = res.data;
+        const { token, expiresAt, loginUser } = res.data;
         setFormData({
             email: '',
             password: '',
         });
         setError('');
         formRef.current.reset();
-        dispatch(login({ token, expiresAt }));
-        if (redirectPath) {
-            navigate(redirectPath);
-          } else {
-            navigate("/");
-          }
+        dispatch(login({ token, expiresAt, loginUser }));
     }     
       
     const callbackError = (err) => {

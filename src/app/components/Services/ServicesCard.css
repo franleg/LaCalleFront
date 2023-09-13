@@ -1,6 +1,5 @@
 .card {
-    width: 380px;
-    height: 300px;
+    display: flex;
     margin-top: 30px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
     border: none;
@@ -36,6 +35,7 @@
 .card-title{
     position: relative;
     top: 20%;
+    margin-bottom: 30px;
     font-size: 42px;
     font-weight: bold;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
@@ -58,6 +58,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .card-btn {
@@ -101,3 +102,5 @@
     transition-delay: 0s !important;
     background: rgba(255, 255, 255, .2);
 } */
+
+

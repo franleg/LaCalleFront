@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  width: 100%;
+  position: relative;
+  background-image: linear-gradient( rgba(15, 11, 0, 0.7), rgba(153,103,16, 0.7)), url(./assets/img/fondo6.jpg);
+  background-size: cover;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {

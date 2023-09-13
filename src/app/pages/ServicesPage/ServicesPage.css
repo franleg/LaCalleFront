@@ -38,11 +38,14 @@
     justify-content: space-around;
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:965px) {
     .title-services{
         font-size: 2.4em;
     }
     .line {
         width: 4rem;
+    }
+    .cards-container {
+        flex-direction: column;
     }
 }

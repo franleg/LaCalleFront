@@ -3,7 +3,7 @@ export * from './HomePage/HomePage';
 export * from './SessionPage/SessionPage';
 export * from './ProfilePage/ProfilePage';
 export * from './ServicesPage/ServicesPage';
-export * from './BookingsPage/BookingsPage';
+export * from './ReservationPage/ReservationPage';
 export * from './TimetablePage/TimetablePage';
 export * from './TrainingPage/TrainingPage';
 export * from './TournamentsPage/TournamentsPage';
